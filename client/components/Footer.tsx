@@ -1,32 +1,50 @@
 export default function Footer() {
   return (
-    <footer className="w-full bg-card border-t border-border mt-12">
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div>
-            <h3 className="font-bold text-foreground mb-2">Doxing Dot Life</h3>
+    <footer className="w-full bg-card border-t border-border mt-12 shadow-md animate-fadeIn">
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
+          <div className="animate-fadeIn" style={{ animationDelay: "0.1s" }}>
+            <h3 className="font-bold text-foreground mb-2 flex items-center gap-2">
+              🔍 Doxing Dot Life
+            </h3>
             <p className="text-sm text-muted-foreground">
-              A secure database for doxing information sharing
+              A comprehensive database for doxing information sharing
             </p>
           </div>
-          <div>
-            <h4 className="font-semibold text-foreground mb-3">Categories</h4>
+          <div className="animate-fadeIn" style={{ animationDelay: "0.2s" }}>
+            <h4 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+              📂 Categories
+            </h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>By Country</li>
-              <li>By City</li>
-              <li>By Server</li>
+              <li className="hover:text-accent transition-colors">
+                🌍 By Country
+              </li>
+              <li className="hover:text-accent transition-colors">
+                🏙️ By City
+              </li>
+              <li className="hover:text-accent transition-colors">
+                🖥️ By Server
+              </li>
             </ul>
           </div>
-          <div>
-            <h4 className="font-semibold text-foreground mb-3">Features</h4>
+          <div className="animate-fadeIn" style={{ animationDelay: "0.3s" }}>
+            <h4 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+              ⭐ Features
+            </h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Advanced Search</li>
-              <li>Comprehensive Database</li>
-              <li>Regular Updates</li>
+              <li className="hover:text-accent transition-colors">
+                🔎 Advanced Search
+              </li>
+              <li className="hover:text-accent transition-colors">
+                📊 Comprehensive Database
+              </li>
+              <li className="hover:text-accent transition-colors">
+                🔄 Regular Updates
+              </li>
             </ul>
           </div>
         </div>
-        <div className="border-t border-border pt-6 text-center text-sm text-muted-foreground">
+        <div className="border-t border-border pt-6 text-center text-xs sm:text-sm text-muted-foreground">
           <p>&copy; 2024 Doxing Dot Life. All rights reserved.</p>
         </div>
       </div>

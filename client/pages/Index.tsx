@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Search, ChevronDown } from "lucide-react";
+import { Search } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -313,6 +314,7 @@ const CITIES_BY_COUNTRY: Record<string, string[]> = {
 };
 
 export default function Index() {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
@@ -404,42 +406,50 @@ export default function Index() {
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col">
+    <div className="min-h-screen bg-background text-foreground flex flex-col animate-fadeIn">
       <Header />
 
       <main className="flex-1 w-full">
         {/* Hero Section */}
-        <div className="bg-gradient-to-br from-background via-card to-background pt-16 pb-12 md:pt-24 md:pb-20 border-b border-border/50">
+        <div className="bg-gradient-to-br from-background via-card/50 to-background pt-12 pb-8 md:pt-20 md:pb-16 border-b border-border/50">
           <div className="max-w-5xl mx-auto px-4">
-            <h1 className="text-6xl md:text-7xl font-black mb-4 text-foreground tracking-tighter leading-none">
-              Doxing Dot Life
-            </h1>
-            <p className="text-2xl md:text-3xl font-bold text-foreground mb-12 max-w-3xl">
-              Find if you or someone you know have been Doxed
-            </p>
+            <div className="animate-fadeIn" style={{ animationDelay: "0.1s" }}>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 text-foreground tracking-tighter leading-tight">
+                🔍 Doxing Dot Life
+              </h1>
+              <p className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-8 max-w-3xl">
+                Find if you or someone you know have been Doxed
+              </p>
+            </div>
 
             {/* Search Bar */}
-            <div className="relative mb-12">
+            <div
+              className="relative mb-10 animate-fadeIn"
+              style={{ animationDelay: "0.2s" }}
+            >
               <input
                 type="text"
-                placeholder="Search for doxed individuals..."
+                placeholder="Search for individuals..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-6 py-4 bg-card border-2 border-border hover:border-accent/50 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent text-lg transition-colors"
+                className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-card border-2 border-border hover:border-accent/50 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent text-base sm:text-lg transition-all shadow-md hover:shadow-lg"
               />
-              <Search className="absolute right-5 top-1/2 transform -translate-y-1/2 w-6 h-6 text-muted-foreground" />
+              <Search className="absolute right-4 sm:right-5 top-1/2 transform -translate-y-1/2 w-5 h-5 sm:w-6 sm:h-6 text-muted-foreground pointer-events-none" />
             </div>
 
             {/* Categories Section */}
-            <div className="mb-0">
-              <h3 className="text-sm font-black text-foreground mb-6 uppercase tracking-widest flex items-center gap-2">
-                📂 Look into Categories
+            <div
+              className="mb-0 animate-fadeIn"
+              style={{ animationDelay: "0.3s" }}
+            >
+              <h3 className="text-sm font-black text-foreground mb-6 uppercase tracking-widest">
+                📂 Filter by Category
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {/* Country Dropdown */}
                 <div className="relative group">
                   <label className="text-sm font-bold text-foreground block mb-2">
-                    By Country
+                    🌍 By Country
                   </label>
                   <input
                     type="text"
@@ -448,7 +458,7 @@ export default function Index() {
                     }
                     value={countrySearch}
                     onChange={(e) => setCountrySearch(e.target.value)}
-                    className="w-full px-4 py-3 bg-card border border-border hover:border-accent/50 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent text-sm transition-colors"
+                    className="w-full px-4 py-3 bg-card border border-border hover:border-accent/50 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent text-sm transition-all shadow-sm hover:shadow-md"
                   />
                   {countrySearch && (
                     <div className="absolute top-full left-0 right-0 mt-2 bg-card border border-border rounded-lg z-50 max-h-48 overflow-y-auto shadow-lg">
@@ -490,14 +500,14 @@ export default function Index() {
                 {/* City Dropdown */}
                 <div className="relative group">
                   <label className="text-sm font-bold text-foreground block mb-2">
-                    By City
+                    🏙️ By City
                   </label>
                   <input
                     type="text"
                     placeholder={selectedCity ? selectedCity : "Select city..."}
                     value={citySearch}
                     onChange={(e) => setCitySearch(e.target.value)}
-                    className="w-full px-4 py-3 bg-card border border-border hover:border-accent/50 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent text-sm transition-colors"
+                    className="w-full px-4 py-3 bg-card border border-border hover:border-accent/50 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent text-sm transition-all shadow-sm hover:shadow-md"
                   />
                   {citySearch && (
                     <div className="absolute top-full left-0 right-0 mt-2 bg-card border border-border rounded-lg z-50 max-h-48 overflow-y-auto shadow-lg">
@@ -537,7 +547,7 @@ export default function Index() {
                 {/* Server Dropdown */}
                 <div className="relative group">
                   <label className="text-sm font-bold text-foreground block mb-2">
-                    By Server
+                    🖥️ By Server
                   </label>
                   <input
                     type="text"
@@ -546,7 +556,7 @@ export default function Index() {
                     }
                     value={serverSearch}
                     onChange={(e) => setServerSearch(e.target.value)}
-                    className="w-full px-4 py-3 bg-card border border-border hover:border-accent/50 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent text-sm transition-colors"
+                    className="w-full px-4 py-3 bg-card border border-border hover:border-accent/50 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent text-sm transition-all shadow-sm hover:shadow-md"
                   />
                   {serverSearch && (
                     <div className="absolute top-full left-0 right-0 mt-2 bg-card border border-border rounded-lg z-50 max-h-48 overflow-y-auto shadow-lg">
@@ -589,7 +599,7 @@ export default function Index() {
 
         {/* Hot & Recent Posts */}
         <div className="max-w-7xl mx-auto px-4 py-16">
-          <div className="mb-12">
+          <div className="mb-12 animate-fadeIn">
             <h2 className="text-5xl md:text-6xl font-black mb-3">
               {filteredPosts.length === 0
                 ? "No Posts Found"
@@ -605,10 +615,12 @@ export default function Index() {
           {displayedPosts.length > 0 ? (
             <>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
-                {displayedPosts.map((post) => (
+                {displayedPosts.map((post, idx) => (
                   <div
                     key={post.id}
-                    className="group bg-card border border-border rounded-xl overflow-hidden hover:border-accent hover:shadow-xl transition-all duration-300 cursor-pointer hover:-translate-y-1"
+                    onClick={() => navigate(`/post/${post.id}`)}
+                    className="group bg-card border border-border rounded-xl overflow-hidden hover:border-accent hover:shadow-xl transition-all duration-300 cursor-pointer hover:-translate-y-1 animate-fadeIn"
+                    style={{ animationDelay: `${idx * 0.05}s` }}
                   >
                     {post.thumbnail && (
                       <div className="w-full h-40 bg-muted overflow-hidden">
@@ -629,17 +641,17 @@ export default function Index() {
                       <div className="flex flex-wrap gap-2">
                         {post.country && (
                           <span className="inline-block bg-accent/20 text-accent px-3 py-1 rounded-full text-xs font-medium">
-                            {post.country}
+                            🌍 {post.country}
                           </span>
                         )}
                         {post.city && (
                           <span className="inline-block bg-accent/20 text-accent px-3 py-1 rounded-full text-xs font-medium">
-                            {post.city}
+                            🏙️ {post.city}
                           </span>
                         )}
                         {post.server && (
                           <span className="inline-block bg-accent/20 text-accent px-3 py-1 rounded-full text-xs font-medium">
-                            {post.server}
+                            🖥️ {post.server}
                           </span>
                         )}
                       </div>
@@ -650,22 +662,22 @@ export default function Index() {
 
               {/* Pagination */}
               {totalPages > 1 && (
-                <div className="flex justify-center items-center gap-3">
+                <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 animate-fadeIn">
                   <button
                     onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                     disabled={currentPage === 1}
-                    className="px-4 py-2 bg-accent text-accent-foreground font-medium rounded-lg hover:bg-accent/90 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                    className="px-3 sm:px-4 py-2 bg-accent text-accent-foreground font-medium rounded-lg hover:bg-accent/90 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-md hover:shadow-lg active:scale-95 text-sm sm:text-base"
                   >
-                    ← Previous
+                    ← Prev
                   </button>
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1 flex-wrap justify-center">
                     {Array.from({ length: totalPages }, (_, i) => i + 1).map(
                       (page) => (
                         <button
                           key={page}
                           onClick={() => setCurrentPage(page)}
                           className={cn(
-                            "w-10 h-10 rounded-lg font-medium transition-all text-sm",
+                            "w-9 h-9 sm:w-10 sm:h-10 rounded-lg font-medium transition-all text-xs sm:text-sm shadow-sm hover:shadow-md",
                             currentPage === page
                               ? "bg-accent text-accent-foreground"
                               : "bg-card border border-border hover:border-accent text-foreground",
@@ -681,7 +693,7 @@ export default function Index() {
                       setCurrentPage(Math.min(totalPages, currentPage + 1))
                     }
                     disabled={currentPage === totalPages}
-                    className="px-4 py-2 bg-accent text-accent-foreground font-medium rounded-lg hover:bg-accent/90 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                    className="px-3 sm:px-4 py-2 bg-accent text-accent-foreground font-medium rounded-lg hover:bg-accent/90 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-md hover:shadow-lg active:scale-95 text-sm sm:text-base"
                   >
                     Next →
                   </button>
@@ -689,8 +701,8 @@ export default function Index() {
               )}
             </>
           ) : (
-            <div className="text-center py-16">
-              <p className="text-muted-foreground text-lg">
+            <div className="text-center py-16 animate-fadeIn">
+              <p className="text-muted-foreground text-base sm:text-lg">
                 No posts match your search criteria. Try adjusting your filters.
               </p>
             </div>
