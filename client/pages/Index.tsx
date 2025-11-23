@@ -427,13 +427,13 @@ export default function Index() {
 
       <main className="flex-1 w-full">
         {/* Hero Section */}
-        <div className="bg-gradient-to-br from-background via-card/50 to-background pt-12 pb-8 md:pt-20 md:pb-16 border-b border-border/50">
-          <div className="max-w-5xl mx-auto px-4">
+        <div className="bg-gradient-to-br from-background via-card/50 to-background pt-8 pb-8 md:pt-16 md:pb-12 border-b border-border/50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="animate-fadeIn" style={{ animationDelay: "0.1s" }}>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 text-foreground tracking-tighter leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-3 text-foreground tracking-tighter leading-tight">
                 🔍 Doxing Dot Life
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-8 max-w-3xl">
+              <p className="text-base sm:text-lg md:text-xl font-semibold text-muted-foreground mb-6 max-w-2xl">
                 Find if you or someone you know have been Doxed
               </p>
             </div>
