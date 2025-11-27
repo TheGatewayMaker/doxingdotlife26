@@ -22,7 +22,9 @@ export default function NSFWWarningModal({
         {/* Header */}
         <div className="flex items-start justify-between mb-6">
           <div>
-            <h2 className="text-3xl font-black text-red-400 mb-2">⚠️ NSFW Warning</h2>
+            <h2 className="text-3xl font-black text-red-400 mb-2">
+              ⚠️ NSFW Warning
+            </h2>
             <p className="text-sm text-red-200">Age Verification Required</p>
           </div>
           <button
@@ -36,8 +38,9 @@ export default function NSFWWarningModal({
         {/* Content */}
         <div className="bg-red-900/30 border border-red-600/50 rounded-lg p-5 mb-6">
           <p className="text-sm text-red-100 mb-4">
-            This content contains material that is <strong>Not Safe For Work (NSFW)</strong>. 
-            By proceeding, you confirm that:
+            This content contains material that is{" "}
+            <strong>Not Safe For Work (NSFW)</strong>. By proceeding, you
+            confirm that:
           </p>
 
           {/* Checkboxes */}
@@ -64,7 +67,9 @@ export default function NSFWWarningModal({
                 className="w-5 h-5 accent-red-500 rounded mt-0.5 cursor-pointer"
               />
               <span className="text-sm text-red-100 group-hover:text-red-50 transition-colors">
-                <strong>2. You understand the content may be inappropriate</strong>
+                <strong>
+                  2. You understand the content may be inappropriate
+                </strong>
               </span>
             </label>
 

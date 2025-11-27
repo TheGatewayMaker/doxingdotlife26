@@ -106,7 +106,11 @@ const COUNTRIES = [
 
 export default function AdminPanel() {
   const navigate = useNavigate();
-  const { isAuthenticated, getIdToken, isLoading: isAuthLoading } = useAuthContext();
+  const {
+    isAuthenticated,
+    getIdToken,
+    isLoading: isAuthLoading,
+  } = useAuthContext();
   const [posts, setPosts] = useState<Post[]>([]);
   const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
   const [isLoadingPosts, setIsLoadingPosts] = useState(true);

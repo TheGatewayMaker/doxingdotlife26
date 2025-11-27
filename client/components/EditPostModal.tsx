@@ -272,8 +272,13 @@ export default function EditPostModal({
                 className="w-5 h-5 accent-red-600 rounded cursor-pointer disabled:opacity-50"
               />
               <label htmlFor="nsfw-toggle" className="flex-1 cursor-pointer">
-                <p className="text-sm font-bold text-red-400 mb-1">⚠️ Mark as NSFW</p>
-                <p className="text-xs text-red-300">This content is Not Safe For Work and requires age verification</p>
+                <p className="text-sm font-bold text-red-400 mb-1">
+                  ⚠️ Mark as NSFW
+                </p>
+                <p className="text-xs text-red-300">
+                  This content is Not Safe For Work and requires age
+                  verification
+                </p>
               </label>
             </div>
           </div>
