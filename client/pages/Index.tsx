@@ -296,12 +296,12 @@ export default function Index() {
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#000000] via-[#1a1a1a] to-[#000000] text-white flex flex-col animate-fadeIn">
+    <div className="min-h-screen bg-[#000000] text-white flex flex-col animate-fadeIn">
       <Header />
 
       <main className="flex-1 w-full">
         {/* Hero Section */}
-        <div className="bg-gradient-to-b from-[#1a1a1a]/80 to-transparent py-8 md:py-16 border-b border-[#666666]">
+        <div className="bg-[#000000] py-8 md:py-16 border-b border-[#666666]">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="animate-fadeIn" style={{ animationDelay: "0.1s" }}>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 text-white tracking-tighter leading-tight">
